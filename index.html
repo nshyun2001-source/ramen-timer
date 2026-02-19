@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라면 타이머 - 최고의 맛을 위한 골든 타임</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- PWA / Mobile Optimization -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1e1e24">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3014/3014520.png">
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <div class="container">
+        <header>
+            <div class="title-wrapper">
+                <div class="profile-img-container">
+                    <img src="profile.jpg" alt="Profile" class="profile-img" id="profile-img"
+                        onerror="this.style.display='none'">
+                </div>
+                <h1>라면 타이머</h1>
+            </div>
+            <p>완벽한 면발을 위한 최고의 선택</p>
+        </header>
+
+        <main>
+            <section class="timer-display">
+                <div class="progress-ring-container">
+                    <svg class="progress-ring" viewBox="0 0 280 280">
+                        <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.1)" stroke-width="12"
+                            fill="transparent" r="120" cx="140" cy="140" />
+                        <circle class="progress-ring__circle" stroke="#ff4757" stroke-width="12" fill="transparent"
+                            r="120" cx="140" cy="140" />
+                    </svg>
+                    <div class="time-text">
+                        <span id="minutes">04</span>:<span id="seconds">30</span>
+                    </div>
+                </div>
+                <div class="status-text" id="status-text">준비</div>
+                <div class="cooking-tip" id="cooking-tip"></div>
+
+                <div class="timer-controls">
+                    <button id="btn-start" class="btn-primary"><i class="fa-solid fa-play"></i> 시작</button>
+                    <button id="btn-pause" class="btn-secondary" disabled><i class="fa-solid fa-pause"></i>
+                        일시정지</button>
+                    <button id="btn-reset" class="btn-tertiary"><i class="fa-solid fa-rotate-right"></i> 초기화</button>
+                </div>
+            </section>
+
+            <section class="ramen-selector">
+                <h2>어떤 라면을 드시나요?</h2>
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="ramen-search" placeholder="라면 이름 검색 (예: 신라면, 너구리)">
+                </div>
+                <div class="ramen-grid" id="ramen-grid">
+                    <!-- Ramen items will be injected by JS -->
+                </div>
+
+                <div class="custom-timer-input">
+                    <label for="custom-min">직접 설정:</label>
+                    <input type="number" id="custom-min" min="0" max="59" placeholder="분">
+                    <span>분</span>
+                    <input type="number" id="custom-sec" min="0" max="59" placeholder="초">
+                    <span>초</span>
+                    <button id="btn-set-custom">설정</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Ramen Timer. 맛있게 드세요!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

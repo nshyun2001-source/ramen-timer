@@ -1,0 +1,21 @@
+{
+    "name": "라면 타이머",
+    "short_name": "라면타이머",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#1e1e24",
+    "theme_color": "#1e1e24",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "https://cdn-icons-png.flaticon.com/512/3014/3014520.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://cdn-icons-png.flaticon.com/512/3014/3014520.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
