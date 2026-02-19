@@ -190,6 +190,10 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
+    /* Prevent horizontal stretch */
+    min-width: 0;
+    /* Allow flex child to shrink */
 }
 
 main::-webkit-scrollbar {
@@ -357,12 +361,19 @@ button {
 .ramen-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* Fixed 3 columns for consistency */
+    /* 3 columns on desktop, will override for mobile */
     gap: 0.6rem;
     margin-bottom: 1.5rem;
+    width: 100%;
     max-height: none;
-    /* Let the main scroll handle it */
     overflow: visible;
+}
+
+@media (max-width: 480px) {
+    .ramen-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for better visibility on small screens */
+    }
 }
 
 .ramen-item {
@@ -399,7 +410,15 @@ button {
     font-weight: 600;
     color: var(--text-color);
     text-align: center;
-    word-break: keep-all;
+    word-break: break-all;
+    /* Allow breaking long names */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.2;
+    min-height: 2.4em;
 }
 
 .ramen-item-time {
@@ -421,7 +440,8 @@ button {
     border: 1px solid var(--glass-border);
     background: rgba(0, 0, 0, 0.2);
     color: var(--text-color);
-    font-size: 0.9rem;
+    font-size: 16px;
+    /* Prevent iOS zoom */
     box-sizing: border-box;
     transition: all 0.2s;
 }
